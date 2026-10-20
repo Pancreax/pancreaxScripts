@@ -157,7 +157,10 @@ toma. Nos dois casos, resumir:
 - **Para você decidir**: achados não claros e dúvidas abertas, com `file:line`, e as
   mudanças de ferramenta guardadas em `plan/tool-changes/`;
 - **Decisões questionadas**: achados que contrariam o plano aprovado;
-- **Falta**: o que não foi feito, push e PR.
+- **Falta**: o que não foi feito, push e PR;
+- **Sobrou na máquina**: o que a tarefa deixou fora dos commits, com o tamanho: `plan/`,
+  caches de build, worktrees e clones, app instalado em simulador ou aparelho, mudança em
+  conta de teste e o que a receita do ambiente manda desfazer.
 
 Com a resposta do usuário, retomar de onde parou.
 
@@ -175,3 +178,9 @@ commit. Se já existe PR, conferir o head com
 PR: gerar a descrição com `generate-pr-description`, passando a URL da issue, mostrar ao
 usuário e só depois do ok criar
 (`gh pr create --repo <owner>/<repo> --base <base> --head <owner-do-push>:<branch>`).
+
+## 8. Limpar (só com confirmação)
+
+Quando o usuário disser que a tarefa acabou ou que o PR foi mergeado, mostrar de novo o que
+sobrou na máquina e perguntar o que apagar. Antes disso, nada é apagado: `plan/` e os builds
+servem para retomar e para responder a comentários no PR.
